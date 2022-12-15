@@ -1,19 +1,28 @@
 <resources>
-    <string name="app_name">IndividualProject</string>
+    <string name="app_name">Cardiology</string>
 
     <string name="registration">Ro’yxatdan o’tish</string>
-    <string name="Sign_in">Kirish</string>
+    <string name="sign_in">Kirish</string>
     <string name="login">Login</string>
     <string name="password">Parol</string>
+    <string name="verification_code">Tasdiqlash kodi</string>
     <string name="forgot_password">Parolni unutdingizmi?</string>
     <string name="enter_your_data">Ma’lumotlaringizni kiriting</string>
     <string name="first_name">Ism</string>
     <string name="last_name">Familiya</string>
     <string name="phone_number">Telefon raqam</string>
+    <string name="speciality">Mutaxassislik</string>
     <string name="sections_list">Bo’limlar ro’yxati</string>
     <string name="search">Qidirish</string>
     <string name="symptom_list">Simptomlar ro’yxati</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="room">Xona</string>
+    <string name="create_account">Hisob yaratish</string>
+    <string name="send_verification_code">Tasdiqlash kodini jo’natish</string>
+    <string name="code_sent_1">Bir martalik kod</string>
+    <string name="code_sent_2">raqamiga jo’natildi</string>
+    <string name="submit">Tasdiqlash</string>
+    <string name="verification_code_must_be_6_digits">Tasdiqlash kodi 6 xonali son bo’lishi kerak</string>
+    <string name="save_data">Ma’lumotlarni saqlash</string>
+    <string name="number_already_registered">Bu raqam ro’yxatdan o’tib bo’lgan</string>
 
 </resources>
