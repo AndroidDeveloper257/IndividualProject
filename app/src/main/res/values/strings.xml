@@ -21,5 +21,8 @@
     <string name="code_sent_1">Bir martalik kod</string>
     <string name="code_sent_2">raqamiga jo’natildi</string>
     <string name="submit">Tasdiqlash</string>
+    <string name="verification_code_must_be_6_digits">Tasdiqlash kodi 6 xonali son bo’lishi kerak</string>
+    <string name="save_data">Ma’lumotlarni saqlash</string>
+    <string name="number_already_registered">Bu raqam ro’yxatdan o’tib bo’lgan</string>
 
 </resources>
