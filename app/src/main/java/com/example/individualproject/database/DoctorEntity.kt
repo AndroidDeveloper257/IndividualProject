@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "doctors_table")
-data class Doctor(
+data class DoctorEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: String,
@@ -19,6 +19,8 @@ data class Doctor(
     val specialityId: Int,
     @ColumnInfo(name = "phone_number")
     val phoneNumber: String,
+    @ColumnInfo(name = "password")
+    val password: String,
     @ColumnInfo(name = "room_number")
     val roomNumber: Int
 )

@@ -21,8 +21,14 @@
     <string name="code_sent_1">Bir martalik kod</string>
     <string name="code_sent_2">raqamiga jo’natildi</string>
     <string name="submit">Tasdiqlash</string>
+    <string name="change_phone_number">Telefon raqamini o’zgartirish</string>
     <string name="verification_code_must_be_6_digits">Tasdiqlash kodi 6 xonali son bo’lishi kerak</string>
     <string name="save_data">Ma’lumotlarni saqlash</string>
     <string name="number_already_registered">Bu raqam ro’yxatdan o’tib bo’lgan</string>
+    <string name="nobody_registered_yet">Hali birorta doktor ro’yxatdan o’tmagan</string>
+    <string name="create_account_offer">Ro’yxatdan o’tishni istaysizmi?</string>
+    <string name="yes">Ha</string>
+    <string name="no">Yo’q</string>
+    <string name="choose_speciality">Mutaxassisligingizni tanlang</string>
 
 </resources>

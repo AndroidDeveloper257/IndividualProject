@@ -9,18 +9,18 @@ import androidx.room.Query
 interface DoctorDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addDoctors(doctorList: ArrayList<Doctor>)
+    fun addDoctors(doctorList: ArrayList<DoctorEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addDoctor(doctor: Doctor)
+    fun addDoctor(doctor: DoctorEntity)
 
     @Query("select count(*) from doctors_table")
     fun countDoctors(): Int
 
     @Query("select * from doctors_table where id = :id")
-    fun getDoctorById(id: String): Doctor
+    fun getDoctorById(id: String): DoctorEntity
 
     @Query("select * from doctors_table")
-    fun getDoctors(): List<Doctor>
+    fun getDoctors(): List<DoctorEntity>
 
 }
