@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        app:layout_constraintBottom_toTopOf="@id/underline"
+        android:id="@+id/symptom_name_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Test symptom"
+        android:textSize="@dimen/_13ssp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintTop_toTopOf="@id/symptom_name_tv"
+        app:layout_constraintBottom_toBottomOf="@id/symptom_name_tv"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/selector"
+        android:src="@drawable/unselected"/>
+    
+    <LinearLayout
+        android:id="@+id/underline"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_1sdp"
+        app:layout_constraintLeft_toLeftOf="@id/symptom_name_tv"
+        app:layout_constraintRight_toRightOf="@id/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/edit_text_stroke"
+        android:orientation="horizontal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,10 +14,15 @@ import androidx.annotation.RequiresFeature
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.example.individualproject.R
 import com.example.individualproject.adapters.ChooseSpecialityAdapter
+import com.example.individualproject.const_values.BundleKeys.DOCTOR
 import com.example.individualproject.const_values.FirebaseKeys.DOCTORS
 import com.example.individualproject.const_values.FirebaseKeys.SPECIALITIES
+import com.example.individualproject.database.DoctorEntity
+import com.example.individualproject.database.DoctorsDatabase
 import com.example.individualproject.databinding.FragmentSignUpBinding
 import com.example.individualproject.databinding.SpecialityChoiceDialogItemBinding
 import com.example.individualproject.databinding.VerificationCodeDialogItemBinding
@@ -254,6 +259,29 @@ class SignUpFragment : Fragment() {
                         "Account created successfully",
                         Toast.LENGTH_SHORT
                     ).show()
+                    val doctorsDatabase = DoctorsDatabase.getInstance(requireContext())
+                    val doctorEntity = DoctorEntity(
+                        doctor?.id.toString(),
+                        doctor?.firstName.toString(),
+                        doctor?.lastName.toString(),
+                        doctor?.speciality.toString(),
+                        doctor?.specialityId.toString().toInt(),
+                        doctor?.phoneNumber.toString(),
+                        doctor?.password.toString(),
+                        doctor?.roomNumber.toString().toInt()
+                    )
+                    val doctors = ArrayList(doctorsDatabase.doctorDao().getDoctors())
+                    doctors.add(doctorEntity)
+                    doctorsDatabase.doctorDao().addDoctors(doctors)
+                    val navOptions: NavOptions = NavOptions.Builder()
+                        .setEnterAnim(R.anim.enter)
+                        .setExitAnim(R.anim.exit)
+                        .setPopEnterAnim(R.anim.pop_enter)
+                        .setPopExitAnim(R.anim.pop_exit)
+                        .build()
+                    val bundle = Bundle()
+                    bundle.putParcelable(DOCTOR, doctor)
+                    findNavController().navigate(R.id.homeFragment, bundle, navOptions)
                 }
                 .addOnFailureListener {
                     Log.e(TAG, "createAccount: ${it.message}")

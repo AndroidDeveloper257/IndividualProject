@@ -21,6 +21,7 @@ abstract class DoctorsDatabase : RoomDatabase() {
                     DoctorsDatabase::class.java,
                     "doctors_database"
                 )
+                    .allowMainThreadQueries()
                     .build()
             }
             return INSTANCE!!

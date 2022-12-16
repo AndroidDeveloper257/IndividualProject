@@ -14,7 +14,6 @@
     <string name="speciality">Mutaxassislik</string>
     <string name="sections_list">Bo’limlar ro’yxati</string>
     <string name="search">Qidirish</string>
-    <string name="symptom_list">Simptomlar ro’yxati</string>
     <string name="room">Xona</string>
     <string name="create_account">Hisob yaratish</string>
     <string name="send_verification_code">Tasdiqlash kodini jo’natish</string>
@@ -30,5 +29,9 @@
     <string name="yes">Ha</string>
     <string name="no">Yo’q</string>
     <string name="choose_speciality">Mutaxassisligingizni tanlang</string>
+    <string name="specialities_list">Bo’limlar ro’yxati</string>
+    <string name="symptoms_list">Simptomlar ro’yxati</string>
+    <string name="empty_specialities">Hech qanday mutaxassislik mavjud emas</string>
+    <string name="empty_symptoms">Hech qanday simptomlar mavjud emas</string>
 
 </resources>

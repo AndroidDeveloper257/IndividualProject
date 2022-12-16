@@ -1,6 +1,7 @@
 package com.example.individualproject.fragments.sign_in
 
 import android.app.AlertDialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -12,10 +13,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.individualproject.R
+import com.example.individualproject.const_values.BundleKeys
 import com.example.individualproject.const_values.BundleKeys.DOCTOR
 import com.example.individualproject.const_values.FirebaseKeys.DOCTORS
+import com.example.individualproject.database.DoctorsDatabase
 import com.example.individualproject.databinding.FragmentSignInBinding
 import com.example.individualproject.databinding.NoDoctorsDialogItemBinding
 import com.example.individualproject.models.Doctor
@@ -144,6 +148,28 @@ class SignInFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val database = DoctorsDatabase.getInstance(requireContext())
+        if (database.doctorDao().countDoctors() > 0) {
+            val doctorsList = database.doctorDao().getDoctors()
+            val doctorEntity = doctorsList.first()
+            val doctor = Doctor(
+                doctorEntity.id,
+                doctorEntity.firstName,
+                doctorEntity.lastName,
+                doctorEntity.speciality,
+                doctorEntity.specialityId,
+                doctorEntity.phoneNumber,
+                doctorEntity.password,
+                doctorEntity.roomNumber
+            )
+            val bundle = Bundle()
+            bundle.putParcelable(DOCTOR, doctor)
+            findNavController().navigate(R.id.homeFragment, bundle)
+        }
     }
 
     private fun showNoOneRegisteredDialog() {

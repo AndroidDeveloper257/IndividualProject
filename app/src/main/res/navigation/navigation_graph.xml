@@ -20,4 +20,9 @@
         android:name="com.example.individualproject.fragments.main.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/symptomListFragment"
+        android:name="com.example.individualproject.fragments.main.SymptomListFragment"
+        android:label="fragment_symptom_list"
+        tools:layout="@layout/fragment_symptom_list" />
 </navigation>
