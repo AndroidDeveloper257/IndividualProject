@@ -14,15 +14,24 @@
     <string name="speciality">Mutaxassislik</string>
     <string name="sections_list">Bo’limlar ro’yxati</string>
     <string name="search">Qidirish</string>
-    <string name="symptom_list">Simptomlar ro’yxati</string>
     <string name="room">Xona</string>
     <string name="create_account">Hisob yaratish</string>
     <string name="send_verification_code">Tasdiqlash kodini jo’natish</string>
     <string name="code_sent_1">Bir martalik kod</string>
     <string name="code_sent_2">raqamiga jo’natildi</string>
     <string name="submit">Tasdiqlash</string>
+    <string name="change_phone_number">Telefon raqamini o’zgartirish</string>
     <string name="verification_code_must_be_6_digits">Tasdiqlash kodi 6 xonali son bo’lishi kerak</string>
     <string name="save_data">Ma’lumotlarni saqlash</string>
     <string name="number_already_registered">Bu raqam ro’yxatdan o’tib bo’lgan</string>
+    <string name="nobody_registered_yet">Hali birorta doktor ro’yxatdan o’tmagan</string>
+    <string name="create_account_offer">Ro’yxatdan o’tishni istaysizmi?</string>
+    <string name="yes">Ha</string>
+    <string name="no">Yo’q</string>
+    <string name="choose_speciality">Mutaxassisligingizni tanlang</string>
+    <string name="specialities_list">Bo’limlar ro’yxati</string>
+    <string name="symptoms_list">Simptomlar ro’yxati</string>
+    <string name="empty_specialities">Hech qanday mutaxassislik mavjud emas</string>
+    <string name="empty_symptoms">Hech qanday simptomlar mavjud emas</string>
 
 </resources>

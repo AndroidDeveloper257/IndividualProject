@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Doctor::class], version = 1)
+@Database(entities = [DoctorEntity::class], version = 1)
 abstract class DoctorsDatabase : RoomDatabase() {
 
     abstract fun doctorDao(): DoctorDao
@@ -21,6 +21,7 @@ abstract class DoctorsDatabase : RoomDatabase() {
                     DoctorsDatabase::class.java,
                     "doctors_database"
                 )
+                    .allowMainThreadQueries()
                     .build()
             }
             return INSTANCE!!
