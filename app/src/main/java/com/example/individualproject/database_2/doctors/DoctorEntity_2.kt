@@ -1,11 +1,11 @@
-package com.example.individualproject.database
+package com.example.individualproject.database_2.doctors
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "doctors_table")
-data class DoctorEntity(
+data class DoctorEntity_2(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: String,

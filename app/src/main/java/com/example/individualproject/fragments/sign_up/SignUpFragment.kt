@@ -8,9 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout.Spec
 import android.widget.Toast
-import androidx.annotation.RequiresFeature
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -21,8 +19,8 @@ import com.example.individualproject.adapters.ChooseSpecialityAdapter
 import com.example.individualproject.const_values.BundleKeys.DOCTOR
 import com.example.individualproject.const_values.FirebaseKeys.DOCTORS
 import com.example.individualproject.const_values.FirebaseKeys.SPECIALITIES
-import com.example.individualproject.database.DoctorEntity
-import com.example.individualproject.database.DoctorsDatabase
+import com.example.individualproject.database_3.doctors.DoctorEntity_3
+import com.example.individualproject.database_3.doctors.DoctorsDatabase_3
 import com.example.individualproject.databinding.FragmentSignUpBinding
 import com.example.individualproject.databinding.SpecialityChoiceDialogItemBinding
 import com.example.individualproject.databinding.VerificationCodeDialogItemBinding
@@ -259,8 +257,8 @@ class SignUpFragment : Fragment() {
                         "Account created successfully",
                         Toast.LENGTH_SHORT
                     ).show()
-                    val doctorsDatabase = DoctorsDatabase.getInstance(requireContext())
-                    val doctorEntity = DoctorEntity(
+                    val doctorsDatabase = DoctorsDatabase_3.getInstance(requireContext())
+                    val doctorEntity = DoctorEntity_3(
                         doctor?.id.toString(),
                         doctor?.firstName.toString(),
                         doctor?.lastName.toString(),

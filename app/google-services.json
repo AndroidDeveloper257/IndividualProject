@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "388064695082",
+    "firebase_url": "https://individualprojectcardiology-default-rtdb.firebaseio.com",
+    "project_id": "individualprojectcardiology",
+    "storage_bucket": "individualprojectcardiology.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388064695082:android:dc3c74a533a832fa5b8453",
+        "android_client_info": {
+          "package_name": "com.example.individualproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388064695082-5eh5kev2u1al6d69u2qlm2ebvntf54b1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.individualproject",
+            "certificate_hash": "7a1c0845e82b86c8730222fd191778c34d1b22b5"
+          }
+        },
+        {
+          "client_id": "388064695082-ce3iriumpgt1ma984pge563kfgkuaiia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6HeGLmp15The9aNaRIZuyX1EgYwtQU0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388064695082-ce3iriumpgt1ma984pge563kfgkuaiia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

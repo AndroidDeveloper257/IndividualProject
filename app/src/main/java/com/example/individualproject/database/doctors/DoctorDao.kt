@@ -1,4 +1,4 @@
-package com.example.individualproject.database
+package com.example.individualproject.database.doctors
 
 import androidx.room.Dao
 import androidx.room.Insert

@@ -6,24 +6,32 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.individualproject.R
-import com.example.individualproject.const_values.BundleKeys
 import com.example.individualproject.const_values.BundleKeys.DOCTOR
 import com.example.individualproject.const_values.FirebaseKeys.DOCTORS
-import com.example.individualproject.database.DoctorsDatabase
 import com.example.individualproject.databinding.FragmentSignInBinding
 import com.example.individualproject.databinding.NoDoctorsDialogItemBinding
+import com.example.individualproject.database_3.diseases.DiseaseEntity_3
+import com.example.individualproject.database_3.diseases.DiseasesDatabase_3
+import com.example.individualproject.database_3.doctors.DoctorsDatabase_3
+import com.example.individualproject.database_3.symptoms.SymptomEntity_3
+import com.example.individualproject.database_3.symptoms.SymptomsDatabase_3
+import com.example.individualproject.models.Disease
 import com.example.individualproject.models.Doctor
+import com.example.individualproject.networking.ApiClient
+import com.example.individualproject.networking.ApiService
 import com.google.firebase.database.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignInFragment : Fragment() {
 
@@ -43,11 +51,17 @@ class SignInFragment : Fragment() {
 
     private var isDatabaseEmpty = false
 
+    private lateinit var diseasesdatabase3: DiseasesDatabase_3
+    private lateinit var symptomsDatabase_3: SymptomsDatabase_3
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSignInBinding.inflate(layoutInflater)
+        diseasesdatabase3 = DiseasesDatabase_3.getInstance(requireContext())
+        symptomsDatabase_3 = SymptomsDatabase_3.getInstance(requireContext())
+        work()
         navOptions = NavOptions.Builder()
             .setEnterAnim(R.anim.enter)
             .setExitAnim(R.anim.exit)
@@ -150,9 +164,59 @@ class SignInFragment : Fragment() {
         return binding.root
     }
 
+    private fun work() {
+        Log.d(TAG, "work: worked")
+        ApiClient.getRetrofit().create(ApiService::class.java)
+            .getDiseases().enqueue(object : Callback<List<Disease>> {
+                override fun onResponse(
+                    call: Call<List<Disease>>,
+                    response: Response<List<Disease>>
+                ) {
+                    if (response.isSuccessful) {
+                        val list = response.body()
+                        saveToRoom(list)
+                    } else {
+                        Log.e(TAG, "my request onResponse: unsuccessful")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Disease>>, t: Throwable) {
+                    Log.e(TAG, "my request onFailure: failed")
+                    Log.e(TAG, "my request onFailure: ${t.message}")
+                    Log.e(TAG, "my request onFailure: ${t.printStackTrace()}")
+                }
+
+            })
+
+    }
+
+    private fun saveToRoom(list: List<Disease>?) {
+        val diseaseList: ArrayList<DiseaseEntity_3> = ArrayList()
+        val symptomList: ArrayList<SymptomEntity_3> = ArrayList()
+        list?.forEach {
+            diseasesdatabase3.diseaseDao().addDisease(
+                DiseaseEntity_3(
+                    it.id,
+                    it.description,
+                    it.diseaseName,
+                    it.specialityId,
+                )
+            )
+            it.symptomList.forEach { symptom ->
+                symptomsDatabase_3.symptomDao().addSymptom(
+                    SymptomEntity_3(
+                        symptom.id,
+                        symptom.diseaseId,
+                        symptom.symptomName
+                    )
+                )
+            }
+        }
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        val database = DoctorsDatabase.getInstance(requireContext())
+        val database = DoctorsDatabase_3.getInstance(requireContext())
         if (database.doctorDao().countDoctors() > 0) {
             val doctorsList = database.doctorDao().getDoctors()
             val doctorEntity = doctorsList.first()
